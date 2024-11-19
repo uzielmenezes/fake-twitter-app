@@ -1,0 +1,91 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/prime_theme.scss";
+
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+section {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+}
+
+.form-sec {
+  flex-grow: 0.4;
+  padding: 0 3.5rem;
+  gap: 2rem;
+
+  img {
+    width: 20%;
+  }
+}
+
+.main-sec {
+  flex-grow: 1;
+  gap: 0.8rem;
+  background-color: $gray-bg;
+
+  img {
+    width: 13%;
+  }
+}
+
+.btn-wrap {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 3rem;
+
+  .divider {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: $gray-bg;
+    font-weight: 400;
+    text-transform: uppercase;
+    gap: 2rem;
+    width: 100%;
+
+    div {
+      flex-grow: 1;
+      height: 0.2rem;
+      background-color: $gray-bg;
+    }
+
+    span {
+      color: $dark-gray;
+    }
+  }
+}
+
+:host ::ng-deep {
+  .btn-sign {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .p-button {
+      padding: 2.1rem;
+      font-size: 1.8rem;
+      background-color: $primary-color;
+      box-shadow: 0 0.8rem 1.2rem
+        rgba(148.23004603385925, 64.33935597538948, 255, 0.20000000298023224);
+    }
+  }
+}
