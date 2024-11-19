@@ -1,0 +1,46 @@
+<sign-layout
+  [formTitle]="formTitle"
+  [mainTitle]="mainTitle"
+  [primaryBtnText]="pBtnText"
+  [secondaryBtnText]="sBtnText"
+  [disablePrimaryBtn]="!createForm.valid"
+  (submit)="submit()"
+  (navigate)="navigate()"
+>
+  <form [formGroup]="createForm">
+    <default-input
+      [formControlName]="nameInputType"
+      [label]="nameInputLabel"
+      [type]="nameInputType"
+      [placeholder]="nameInputHolder"
+    >
+      <img src="assets/svg/user-icon.svg" alt="User Icon"
+    /></default-input>
+    <default-input
+      [formControlName]="emailInputType"
+      [label]="emailInputLabel"
+      [type]="emailInputType"
+      [placeholder]="emailInputHolder"
+    >
+      <img src="assets/svg/email-icon.svg" alt="Email envelope"
+    /></default-input>
+    <default-input
+      [formControlName]="passInputName"
+      [label]="passInputLabel"
+      [type]="passInputType"
+    >
+      <img src="assets/svg/password-icon.svg" alt="Locker"
+    /></default-input>
+    <default-input
+      [formControlName]="passConfirmInputName"
+      [label]="passConfirmInputLabel"
+      [type]="passInputType"
+    >
+      <img src="assets/svg/password-icon.svg" alt="Locker"
+    /></default-input>
+    @if(createForm.hasError('notmatched') &&
+    createForm.get('passwordConfirm')?.dirty){
+    <p>Passwords do not match</p>
+    }
+  </form></sign-layout
+>
