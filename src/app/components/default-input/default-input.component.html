@@ -1,0 +1,16 @@
+<div class="input-wrap">
+  <label [for]="type()">{{ label() }}</label>
+  <div class="input-content">
+    <input
+      #textInput
+      pInputText
+      [type]="type()"
+      [placeholder]="placeholder()"
+      [value]="value"
+      (input)="onInput($event)"
+    />
+    <div class="icon">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
