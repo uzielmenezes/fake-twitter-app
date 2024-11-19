@@ -1,0 +1,21 @@
+@import "../../../../styles/variables.scss";
+
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2.4rem;
+  width: 100%;
+  margin-bottom: 3.4rem;
+
+  span {
+    font-size: 1.4rem;
+    text-decoration: underline;
+    color: $secondary-color;
+    text-align: end;
+  }
+
+  p {
+    font-size: 1.4rem;
+    color: red;
+  }
+}
