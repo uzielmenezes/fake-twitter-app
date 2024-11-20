@@ -1,16 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { Router } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ButtonModule} from 'primeng/button';
 
-import { DefaultInputComponent } from '../../../components/default-input/default-input.component';
-import { SignLayoutComponent } from '../../../components/sign-layout/sign-layout.component';
-import { LoginForm } from '../../../types/form.types';
+import {DefaultInputComponent} from '../../../components/default-input/default-input.component';
+import {SignLayoutComponent} from '../../../components/sign-layout/sign-layout.component';
+import {LoginForm} from '../../../types/form.types';
 
 @Component({
   selector: 'app-login-frame',
@@ -42,7 +37,8 @@ export class LoginFrameComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -56,6 +52,6 @@ export class LoginFrameComponent implements OnInit {
   }
 
   navigate() {
-    this.router.navigate(['/create']);
+    this.router.navigate(['/create']).then(() => true);
   }
 }

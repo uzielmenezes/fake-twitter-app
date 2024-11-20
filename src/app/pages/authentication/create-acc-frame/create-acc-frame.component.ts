@@ -1,16 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import { passwordMatchingValidator } from '../../../../shared/validators/passwordMatchingValidator';
-import { DefaultInputComponent } from '../../../components/default-input/default-input.component';
-import { SignLayoutComponent } from '../../../components/sign-layout/sign-layout.component';
-import { SignupForm } from '../../../types/form.types';
+import {passwordMatchingValidator} from '../../../../shared/validators/passwordMatchingValidator';
+import {DefaultInputComponent} from '../../../components/default-input/default-input.component';
+import {SignLayoutComponent} from '../../../components/sign-layout/sign-layout.component';
+import {SignupForm} from '../../../types/form.types';
 
 @Component({
   selector: 'create-acc-frame',
@@ -44,7 +39,8 @@ export class CreateAccFrameComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private readonly router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.createForm = this.fb.group(
@@ -54,7 +50,7 @@ export class CreateAccFrameComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(6)]],
         passwordConfirm: ['', [Validators.required]],
       },
-      { validators: passwordMatchingValidator }
+      {validators: passwordMatchingValidator}
     );
   }
 
@@ -63,6 +59,6 @@ export class CreateAccFrameComponent implements OnInit {
   }
 
   navigate() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login']).then(() => true);
   }
 }
