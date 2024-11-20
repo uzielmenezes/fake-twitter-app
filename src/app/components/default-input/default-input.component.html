@@ -2,12 +2,11 @@
   <label [for]="type()">{{ label() }}</label>
   <div class="input-content">
     <input
-      #textInput
-      pInputText
-      [type]="type()"
-      [placeholder]="placeholder()"
-      [value]="value"
       (input)="onInput($event)"
+      [placeholder]="placeholder()"
+      [type]="type()"
+      [value]="value"
+      pInputText
     />
     <div class="icon">
       <ng-content></ng-content>
