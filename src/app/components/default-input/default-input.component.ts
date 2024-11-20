@@ -1,6 +1,6 @@
-import { Component, forwardRef, input, InputSignal } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
+import {Component, forwardRef, input, InputSignal} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {InputTextModule} from 'primeng/inputtext';
 
 @Component({
   selector: 'default-input',
@@ -23,9 +23,6 @@ export class DefaultInputComponent implements ControlValueAccessor {
 
   value: string = '';
 
-  private onChange: any = () => {};
-  private onTouched: any = () => {};
-
   onInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.onChange(value);
@@ -35,10 +32,18 @@ export class DefaultInputComponent implements ControlValueAccessor {
   writeValue(value: string): void {
     this.value = value;
   }
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouched = fn;
   }
+
+  private onChange: (value: string) => void = () => {
+  };
+
+  private onTouched: (value: string) => void = () => {
+  };
 }
