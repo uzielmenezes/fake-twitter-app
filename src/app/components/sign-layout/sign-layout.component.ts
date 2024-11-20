@@ -1,5 +1,5 @@
-import { Component, input, InputSignal, output } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
+import {Component, input, InputSignal, output, OutputEmitterRef} from '@angular/core';
+import {ButtonModule} from 'primeng/button';
 
 @Component({
   selector: 'sign-layout',
@@ -15,10 +15,10 @@ export class SignLayoutComponent {
   primaryBtnText: InputSignal<string> = input<string>('');
   secondaryBtnText: InputSignal<string> = input<string>('');
 
-  disablePrimaryBtn = input<boolean>(true);
+  disablePrimaryBtn: InputSignal<boolean> = input<boolean>(true);
 
-  onSubmit = output<void>({ alias: 'submit' });
-  onNavigate = output<void>({ alias: 'navigate' });
+  onSubmit: OutputEmitterRef<void> = output<void>({alias: 'submit'});
+  onNavigate: OutputEmitterRef<void> = output<void>({alias: 'navigate'});
 
   submit() {
     this.onSubmit.emit();
