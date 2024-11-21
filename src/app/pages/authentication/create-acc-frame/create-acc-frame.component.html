@@ -1,46 +1,47 @@
 <sign-layout
+  (navigate)="navigate()"
+  (submit)="submit()"
+  [disablePrimaryBtn]="!createForm.valid"
   [formTitle]="formTitle"
   [mainTitle]="mainTitle"
   [primaryBtnText]="pBtnText"
   [secondaryBtnText]="sBtnText"
-  [disablePrimaryBtn]="!createForm.valid"
-  (submit)="submit()"
-  (navigate)="navigate()"
 >
   <form [formGroup]="createForm">
     <default-input
       [formControlName]="nameInputType"
       [label]="nameInputLabel"
-      [type]="nameInputType"
       [placeholder]="nameInputHolder"
+      [type]="nameInputType"
     >
-      <img src="assets/svg/user-icon.svg" alt="User Icon"
-    /></default-input>
+      <img alt="User Icon" src="assets/svg/user-icon.svg"
+      /></default-input>
     <default-input
       [formControlName]="emailInputType"
       [label]="emailInputLabel"
-      [type]="emailInputType"
       [placeholder]="emailInputHolder"
+      [type]="emailInputType"
     >
-      <img src="assets/svg/email-icon.svg" alt="Email envelope"
-    /></default-input>
+      <img alt="Email envelope" src="assets/svg/email-icon.svg"
+      /></default-input>
     <default-input
       [formControlName]="passInputName"
       [label]="passInputLabel"
       [type]="passInputType"
     >
-      <img src="assets/svg/password-icon.svg" alt="Locker"
-    /></default-input>
+      <img alt="Locker" src="assets/svg/password-icon.svg"
+      /></default-input>
     <default-input
       [formControlName]="passConfirmInputName"
       [label]="passConfirmInputLabel"
       [type]="passInputType"
     >
-      <img src="assets/svg/password-icon.svg" alt="Locker"
-    /></default-input>
-    @if(createForm.hasError('notmatched') &&
-    createForm.get('passwordConfirm')?.dirty){
-    <p>Passwords do not match</p>
+      <img alt="Locker" src="assets/svg/password-icon.svg"
+      /></default-input>
+    @if (createForm.hasError('notMatched') &&
+    createForm.get('passwordConfirm')?.dirty) {
+      <p>Passwords do not match</p>
     }
-  </form></sign-layout
+  </form>
+</sign-layout
 >
