@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -36,11 +36,8 @@ export class CreateAccFrameComponent implements OnInit {
 
   createForm!: FormGroup<SignupForm>;
 
-  constructor(
-    private readonly fb: FormBuilder,
-    private readonly router: Router
-  ) {
-  }
+  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
 
   ngOnInit(): void {
     this.createForm = this.fb.group(

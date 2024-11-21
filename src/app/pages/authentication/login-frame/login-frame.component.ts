@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ButtonModule} from 'primeng/button';
@@ -34,11 +34,8 @@ export class LoginFrameComponent implements OnInit {
 
   loginForm!: FormGroup<LoginForm>;
 
-  constructor(
-    private readonly fb: FormBuilder,
-    private readonly router: Router
-  ) {
-  }
+  private readonly fb = inject(FormBuilder);
+  private readonly router = inject(Router);
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
