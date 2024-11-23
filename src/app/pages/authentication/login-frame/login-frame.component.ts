@@ -38,6 +38,8 @@ export class LoginFrameComponent implements OnInit {
   sInputLabel: string = 'Password';
   sInputType: string = 'password';
 
+  tooltipMessage: string = 'Use a valid email and password';
+
   loginForm!: FormGroup<LoginForm>;
 
   private readonly fb = inject(FormBuilder);

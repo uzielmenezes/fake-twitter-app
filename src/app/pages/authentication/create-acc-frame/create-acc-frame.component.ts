@@ -42,6 +42,8 @@ export class CreateAccFrameComponent implements OnInit {
   passInputLabel: string = 'Password';
   passConfirmInputLabel: string = 'Confirm your password';
 
+  tooltipMessage: string = 'Fill out the fields correctly';
+
   createForm!: FormGroup<SignupForm>;
 
   private readonly fb = inject(FormBuilder);

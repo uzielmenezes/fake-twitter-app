@@ -6,6 +6,7 @@
   [mainTitle]="mainTitle"
   [primaryBtnText]="pBtnText"
   [secondaryBtnText]="sBtnText"
+  [tooltipContent]="tooltipMessage"
 >
   <form [formGroup]="createForm">
     <default-input
@@ -15,7 +16,7 @@
       [type]="nameInputType"
     >
       <img alt="User Icon" src="assets/svg/user-icon.svg"
-      /></default-input>
+    /></default-input>
     <default-input
       [formControlName]="emailInputType"
       [label]="emailInputLabel"
@@ -23,25 +24,24 @@
       [type]="emailInputType"
     >
       <img alt="Email envelope" src="assets/svg/email-icon.svg"
-      /></default-input>
+    /></default-input>
     <default-input
       [formControlName]="passInputType"
       [label]="passInputLabel"
       [type]="passInputType"
     >
       <img alt="Locker" src="assets/svg/password-icon.svg"
-      /></default-input>
+    /></default-input>
     <default-input
       [formControlName]="passConfirmInputName"
       [label]="passConfirmInputLabel"
       [type]="passInputType"
     >
       <img alt="Locker" src="assets/svg/password-icon.svg"
-      /></default-input>
+    /></default-input>
     @if (createForm.hasError('notMatched') &&
     createForm.get('passwordConfirm')?.dirty) {
-      <p>Passwords do not match</p>
+    <p>Passwords do not match</p>
     }
   </form>
-</sign-layout
->
+</sign-layout>

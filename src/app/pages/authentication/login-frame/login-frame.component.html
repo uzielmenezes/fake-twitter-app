@@ -6,6 +6,7 @@
   [mainTitle]="mainTitle"
   [primaryBtnText]="pBtnText"
   [secondaryBtnText]="sBtnText"
+  [tooltipContent]="tooltipMessage"
 >
   <form [formGroup]="loginForm">
     <default-input
@@ -15,13 +16,13 @@
       [type]="pInputType"
     >
       <img alt="Email envelope" src="assets/svg/email-icon.svg"
-      /></default-input>
+    /></default-input>
     <default-input
       [formControlName]="sInputType"
       [label]="sInputLabel"
       [type]="sInputType"
     >
       <img alt="Locker" src="assets/svg/password-icon.svg"
-      /></default-input>
+    /></default-input>
   </form>
 </sign-layout>
