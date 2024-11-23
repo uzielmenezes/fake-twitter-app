@@ -1,28 +1,67 @@
 @import "../styles/variables.scss";
 
-:host ::ng-deep {
-  .p-button {
-    width: 70%;
+.p-button {
+  width: 70%;
+  padding: 1.2rem;
+  color: #fff;
+  background-color: $primary-color;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: none;
+}
 
-    padding: 1.2rem;
-    color: #fff;
-    background-color: $primary-color;
-    border-radius: 0.8rem;
-    font-size: 1.6rem;
-    font-weight: 500;
-    border: none;
+
+.p-inputtext {
+  border: none;
+  width: 100%;
+  border-radius: 0.8rem 0 0 0.8rem;
+  background-color: $gray-secondary-bg;
+  padding: 1.2rem 0 1.2rem 2rem;
+  font-size: 1.6rem;
+
+  &::placeholder {
+    opacity: 0.5;
+  }
+}
+
+.p-toast {
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+}
+
+.p-toast-message-icon {
+  display: none;
+}
+
+.p-toast-message-content {
+  padding: 1rem 2.5rem;
+
+  .p-toast-message-text {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
   }
 
-  .p-inputtext {
-    border: none;
-    width: 100%;
-    border-radius: 0.8rem 0 0 0.8rem;
-    background-color: $gray-secondary-bg;
-    padding: 1.2rem 0 1.2rem 2rem;
-    font-size: 1.6rem;
+  .p-toast-summary {
+    font-size: 2rem;
+  }
 
-    &::placeholder {
-      opacity: 0.5;
+  .p-toast-detail {
+    font-size: 1.6rem;
+  }
+
+  .p-toast-icon-close {
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+
+    svg {
+      transform: scale(1.5);
     }
   }
 }
