@@ -1,14 +1,19 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
-import {Router} from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
-import {passwordMatchingValidator} from '../../../../shared/validators/passwordMatchingValidator';
-import {DefaultInputComponent} from '../../../components/default-input/default-input.component';
-import {SignLayoutComponent} from '../../../components/sign-layout/sign-layout.component';
-import {SignupForm} from '../../../types/form.types';
-import {LoginSignService} from "../../../services/login-sign/login-sign.service";
-import {AuthService} from "../../../services/auth/auth.service";
-import {switchMap} from "rxjs";
+import { passwordMatchingValidator } from '../../../../shared/validators/passwordMatchingValidator';
+import { DefaultInputComponent } from '../../../components/default-input/default-input.component';
+import { SignLayoutComponent } from '../../../components/sign-layout/sign-layout.component';
+import { AuthService } from '../../../services/auth/auth.service';
+import { LoginSignService } from '../../../services/login-sign/login-sign.service';
+import { SignupForm } from '../../../types/form.types';
 
 @Component({
   selector: 'create-acc-frame',
@@ -52,21 +57,24 @@ export class CreateAccFrameComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(6)]],
         passwordConfirm: ['', [Validators.required]],
       },
-      {validators: passwordMatchingValidator}
+      { validators: passwordMatchingValidator }
     );
   }
 
   submit() {
-    const {username, email, password} = this.createForm.value;
+    const { username, email, password } = this.createForm.value;
 
-    this.loginSignService.createAndLogin({
-      username,
-      email,
-      password
-    }).pipe(switchMap(() => this.authService.handleAuth(email, password))).subscribe();
+    this.loginSignService
+      .createAndLogin({
+        username,
+        email,
+        password,
+      })
+      .pipe(switchMap(() => this.authService.handleAuth(email, password)))
+      .subscribe();
   }
 
   navigate() {
-    this.router.navigate(['/login']).then(() => true);
+    this.router.navigate(['/login']);
   }
 }

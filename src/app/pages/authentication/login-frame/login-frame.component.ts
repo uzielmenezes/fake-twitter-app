@@ -1,12 +1,17 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators,} from '@angular/forms';
-import {Router} from '@angular/router';
-import {ButtonModule} from 'primeng/button';
+import { Component, inject, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
-import {DefaultInputComponent} from '../../../components/default-input/default-input.component';
-import {SignLayoutComponent} from '../../../components/sign-layout/sign-layout.component';
-import {LoginForm} from '../../../types/form.types';
-import {AuthService} from "../../../services/auth/auth.service";
+import { DefaultInputComponent } from '../../../components/default-input/default-input.component';
+import { SignLayoutComponent } from '../../../components/sign-layout/sign-layout.component';
+import { AuthService } from '../../../services/auth/auth.service';
+import { LoginForm } from '../../../types/form.types';
 
 @Component({
   selector: 'app-login-frame',
@@ -47,11 +52,11 @@ export class LoginFrameComponent implements OnInit {
   }
 
   submit() {
-    const {email, password} = this.loginForm.value;
+    const { email, password } = this.loginForm.value;
     this.authService.handleAuth(email, password).subscribe();
   }
 
   navigate(route: string = 'create') {
-    this.router.navigate(['/create']).then(() => true);
+    this.router.navigate(['/create']);
   }
 }

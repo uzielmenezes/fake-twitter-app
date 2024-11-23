@@ -1,22 +1,25 @@
-import {fakeAsync, TestBed} from '@angular/core/testing';
-import {provideRouter, Router} from '@angular/router';
-import {AuthGuard} from './auth.guard';
-import {ToastService} from "../../../app/services/toast/toast.service";
-import {of} from "rxjs"; // Adjust the import to the correct path
+import { fakeAsync, TestBed } from '@angular/core/testing';
+import { provideRouter, Router } from '@angular/router';
+import { of } from 'rxjs';
+
+import { ToastService } from '../../../app/services/toast/toast.service';
+import { AuthGuard } from './auth.guard';
 
 describe('AuthGuard', () => {
   let guard: AuthGuard;
-  let routerMock = {navigate: jasmine.createSpy('navigate').and.returnValue(of(true))};
-  let toastServiceMock = {showMessage: jasmine.createSpy('showMessage')};
+  let routerMock = {
+    navigate: jasmine.createSpy('navigate').and.returnValue(of(true)),
+  };
+  let toastServiceMock = { showMessage: jasmine.createSpy('showMessage') };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         AuthGuard,
         provideRouter([]),
-        {provide: Router, useValue: routerMock},
-        {provide: ToastService, useValue: toastServiceMock}
-      ]
+        { provide: Router, useValue: routerMock },
+        { provide: ToastService, useValue: toastServiceMock },
+      ],
     });
     guard = TestBed.inject(AuthGuard);
   });
@@ -40,6 +43,6 @@ describe('AuthGuard', () => {
       severity: 'error',
       summary: 'Access denied.',
       detail: `You don't have access to this page.`,
-    })
+    });
   }));
 });
