@@ -2,7 +2,7 @@ import { FormControl, FormGroup, ValidatorFn } from '@angular/forms';
 
 import { passwordMatchingValidator } from './passwordMatchingValidator';
 
-fdescribe('passwordMatchingValidator', () => {
+describe('passwordMatchingValidator', () => {
   const buildForm = (password: string, passwordConfirm: string) => {
     return new FormGroup(
       {
