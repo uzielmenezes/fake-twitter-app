@@ -9,7 +9,7 @@
 >
   <form [formGroup]="createForm">
     <default-input
-      [formControlName]="nameInputType"
+      [formControlName]="nameInputName"
       [label]="nameInputLabel"
       [placeholder]="nameInputHolder"
       [type]="nameInputType"
@@ -25,7 +25,7 @@
       <img alt="Email envelope" src="assets/svg/email-icon.svg"
       /></default-input>
     <default-input
-      [formControlName]="passInputName"
+      [formControlName]="passInputType"
       [label]="passInputLabel"
       [type]="passInputType"
     >

@@ -6,6 +6,9 @@ import {passwordMatchingValidator} from '../../../../shared/validators/passwordM
 import {DefaultInputComponent} from '../../../components/default-input/default-input.component';
 import {SignLayoutComponent} from '../../../components/sign-layout/sign-layout.component';
 import {SignupForm} from '../../../types/form.types';
+import {LoginSignService} from "../../../services/login-sign/login-sign.service";
+import {AuthService} from "../../../services/auth/auth.service";
+import {switchMap} from "rxjs";
 
 @Component({
   selector: 'create-acc-frame',
@@ -20,6 +23,7 @@ export class CreateAccFrameComponent implements OnInit {
   pBtnText: string = 'Create Account';
   sBtnText: string = 'Sign in';
 
+  nameInputName: string = 'username';
   nameInputType: string = 'name';
   nameInputLabel: string = 'Name';
   nameInputHolder: string = 'John Doe';
@@ -28,7 +32,6 @@ export class CreateAccFrameComponent implements OnInit {
   emailInputLabel: string = 'Email';
   emailInputHolder: string = 'johndoe@gmail.com';
 
-  passInputName: string = 'password';
   passConfirmInputName: string = 'passwordConfirm';
   passInputType: string = 'password';
   passInputLabel: string = 'Password';
@@ -38,11 +41,13 @@ export class CreateAccFrameComponent implements OnInit {
 
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
+  private readonly loginSignService = inject(LoginSignService);
+  private readonly authService = inject(AuthService);
 
   ngOnInit(): void {
     this.createForm = this.fb.group(
       {
-        name: ['', [Validators.minLength(3)]],
+        username: ['', [Validators.minLength(3)]],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
         passwordConfirm: ['', [Validators.required]],
@@ -52,7 +57,13 @@ export class CreateAccFrameComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.createForm.valid);
+    const {username, email, password} = this.createForm.value;
+
+    this.loginSignService.createAndLogin({
+      username,
+      email,
+      password
+    }).pipe(switchMap(() => this.authService.handleAuth(email, password))).subscribe();
   }
 
   navigate() {
