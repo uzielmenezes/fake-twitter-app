@@ -1,22 +1,29 @@
-import {CanActivate, GuardResult, MaybeAsync, Router} from '@angular/router';
+import {CanActivate, Router} from '@angular/router';
 import {inject, Injectable} from "@angular/core";
+import {ToastService} from "../../../app/services/toast/toast.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotFoundGuard implements CanActivate {
-  router = inject(Router);
+  private readonly router = inject(Router);
+  private readonly toastService = inject(ToastService);
 
-  canActivate(): MaybeAsync<GuardResult> {
+  canActivate(): boolean {
     const authToken = sessionStorage.getItem("auth-token")
-    
+
+    this.toastService.showMessage({
+      severity: 'error',
+      summary: 'Page Not Found',
+      detail: `The page you are trying to access doesn't exist.`,
+    })
+
     if (authToken) {
       this.router.navigate(['/user']).then(() => true);
       return false;
-    } else {
-      console.log('Access denied');
-      return true;
     }
+
+    return true;
   }
 
 }
