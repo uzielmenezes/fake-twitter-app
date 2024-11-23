@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import {
   HttpTestingController,
   provideHttpClientTesting,
@@ -28,6 +29,7 @@ describe('AuthService', () => {
       providers: [
         AuthService,
         LoginSignService,
+        provideHttpClient(),
         provideHttpClientTesting(),
         { provide: Router, useValue: routerSpy },
         { provide: ToastService, useValue: toastServiceSpy },
