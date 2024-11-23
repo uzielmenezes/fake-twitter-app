@@ -11,7 +11,6 @@
   border: none;
 }
 
-
 .p-inputtext {
   border: none;
   width: 100%;
@@ -57,11 +56,21 @@
 
   .p-toast-icon-close {
     position: absolute;
-    right: .5rem;
-    top: .5rem;
+    right: 0.5rem;
+    top: 0.5rem;
 
     svg {
       transform: scale(1.5);
     }
   }
+}
+
+.p-tooltip {
+  max-width: fit-content;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+}
+
+.p-tooltip-text {
+  padding: 1rem;
 }
