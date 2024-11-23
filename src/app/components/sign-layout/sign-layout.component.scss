@@ -1,5 +1,4 @@
 @import "../../../styles/variables.scss";
-@import "../../../styles/prime_theme.scss";
 
 main {
   display: flex;
@@ -74,18 +73,15 @@ h1 {
   }
 }
 
-:host ::ng-deep {
-  .btn-sign {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .p-button {
-      padding: 2.1rem;
-      font-size: 1.8rem;
-      background-color: $primary-color;
-      box-shadow: 0 0.8rem 1.2rem
-        rgba(148.23004603385925, 64.33935597538948, 255, 0.20000000298023224);
-    }
-  }
+.btn-sign {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-button {
+  padding: 2.1rem;
+  font-size: 1.8rem;
+  box-shadow: 0 0.8rem 1.2rem rgba(148.23004603385925, 64.33935597538948, 255, 0.20000000298023224);
 }

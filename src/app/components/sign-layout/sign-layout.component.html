@@ -1,30 +1,32 @@
 <main>
   <section class="form-sec">
-    <img src="assets/png/twitter-logo.png" alt="Twitter Logo" />
+    <img alt="Twitter Logo" src="assets/png/twitter-logo.png"/>
     <h1>{{ formTitle() }}</h1>
     <ng-content></ng-content>
     <div class="btn-wrap">
-      <p-button
-        class="btn-sign"
-        [label]="primaryBtnText()"
-        (onClick)="submit()"
+      <button
+        (click)="submit()"
         [disabled]="disablePrimaryBtn()"
-      ></p-button>
+        [label]="primaryBtnText()"
+        class="btn-sign"
+        pButton
+      ></button>
       <div class="divider">
         <div></div>
         <span>or</span>
         <div></div>
       </div>
-      <p-button
-        class="btn-sign"
+      <button
+        (click)="navigate()"
         [label]="secondaryBtnText()"
-        (onClick)="navigate()"
-      ></p-button>
+        class="btn-sign"
+        pButton
+      ></button>
     </div>
   </section>
 
   <section class="main-sec">
     <h1>{{ mainTitle() }}</h1>
-    <img src="assets/png/homepage-draw.png" alt="Home page draw" />
+    <img alt="Home page draw" src="assets/png/homepage-draw.png"/>
   </section>
 </main>

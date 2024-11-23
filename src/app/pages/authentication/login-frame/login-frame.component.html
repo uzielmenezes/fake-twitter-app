@@ -1,27 +1,27 @@
 <sign-layout
+  (navigate)="navigate()"
+  (submit)="submit()"
+  [disablePrimaryBtn]="!loginForm.valid"
   [formTitle]="formTitle"
   [mainTitle]="mainTitle"
   [primaryBtnText]="pBtnText"
   [secondaryBtnText]="sBtnText"
-  [disablePrimaryBtn]="!loginForm.valid"
-  (submit)="submit()"
-  (navigate)="navigate()"
 >
   <form [formGroup]="loginForm">
     <default-input
       [formControlName]="pInputType"
       [label]="pInputLabel"
-      [type]="pInputType"
       [placeholder]="pInputPlaceholder"
+      [type]="pInputType"
     >
-      <img src="assets/svg/email-icon.svg" alt="Email envelope"
-    /></default-input>
+      <img alt="Email envelope" src="assets/svg/email-icon.svg"
+      /></default-input>
     <default-input
       [formControlName]="sInputType"
       [label]="sInputLabel"
       [type]="sInputType"
     >
-      <img src="assets/svg/password-icon.svg" alt="Locker"
-    /></default-input>
+      <img alt="Locker" src="assets/svg/password-icon.svg"
+      /></default-input>
   </form>
 </sign-layout>
