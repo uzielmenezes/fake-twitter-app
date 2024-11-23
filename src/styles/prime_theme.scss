@@ -68,9 +68,13 @@
 .p-tooltip {
   max-width: fit-content;
   font-size: 1.4rem;
-  padding: 0.5rem;
 }
 
 .p-tooltip-text {
   padding: 1rem;
+  background-color: $secondary-color;
+}
+
+.p-tooltip-arrow {
+  display: none;
 }
