@@ -8,7 +8,7 @@ import { TestBed } from '@angular/core/testing';
 import { LoginResponse } from '../../types/login.types';
 import { LoginSignService } from './login-sign.service';
 
-fdescribe('LoginSignService', () => {
+describe('LoginSignService', () => {
   let service: LoginSignService;
   let httpMock: HttpTestingController;
 
