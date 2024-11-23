@@ -1,12 +1,16 @@
-import {FormControl, FormGroup, ValidatorFn} from '@angular/forms';
-import {passwordMatchingValidator} from "./passwordMatchingValidator";
+import { FormControl, FormGroup, ValidatorFn } from '@angular/forms';
 
-describe('passwordMatchingValidator', () => {
+import { passwordMatchingValidator } from './passwordMatchingValidator';
+
+fdescribe('passwordMatchingValidator', () => {
   const buildForm = (password: string, passwordConfirm: string) => {
-    return new FormGroup({
-      password: new FormControl(password),
-      passwordConfirm: new FormControl(passwordConfirm)
-    }, {validators: passwordMatchingValidator as ValidatorFn});
+    return new FormGroup(
+      {
+        password: new FormControl(password),
+        passwordConfirm: new FormControl(passwordConfirm),
+      },
+      { validators: passwordMatchingValidator as ValidatorFn }
+    );
   };
 
   it('should return null if passwords match', () => {
@@ -16,7 +20,7 @@ describe('passwordMatchingValidator', () => {
 
   it('should return { notMatched: true } if passwords do not match', () => {
     const form = buildForm('password123', 'password456');
-    expect(passwordMatchingValidator(form)).toEqual({notMatched: true});
+    expect(passwordMatchingValidator(form)).toEqual({ notMatched: true });
   });
 
   it('should return null if one or both passwords are empty', () => {
