@@ -1,16 +1,13 @@
-import { provideHttpClient } from '@angular/common/http';
-import {
-  HttpTestingController,
-  provideHttpClientTesting,
-} from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { of, throwError } from 'rxjs';
+import {provideHttpClient} from '@angular/common/http';
+import {HttpTestingController, provideHttpClientTesting,} from '@angular/common/http/testing';
+import {TestBed} from '@angular/core/testing';
+import {Router} from '@angular/router';
+import {of, throwError} from 'rxjs';
 
-import { LoginResponse } from '../../types/login.types';
-import { LoginSignService } from '../login-sign/login-sign.service';
-import { ToastService } from '../toast/toast.service';
-import { AuthService } from './auth.service';
+import {LoginResponse} from '../../types/login.types';
+import {LoginSignService} from '../login-sign/login-sign.service';
+import {ToastService} from '../toast/toast.service';
+import {AuthService} from './auth.service';
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -31,8 +28,8 @@ describe('AuthService', () => {
         LoginSignService,
         provideHttpClient(),
         provideHttpClientTesting(),
-        { provide: Router, useValue: routerSpy },
-        { provide: ToastService, useValue: toastServiceSpy },
+        {provide: Router, useValue: routerSpy},
+        {provide: ToastService, useValue: toastServiceSpy},
       ],
     });
 
@@ -65,7 +62,7 @@ describe('AuthService', () => {
       email: 'test@example.com',
       password: 'password',
     });
-    expect(router.navigate).toHaveBeenCalledWith(['/user']);
+    expect(router.navigate).toHaveBeenCalledWith(['/fake-twitter']);
     expect(toastService.showMessage).toHaveBeenCalledWith({
       severity: 'success',
       summary: 'Login',
@@ -74,7 +71,7 @@ describe('AuthService', () => {
   });
 
   it('should show error message on login failure', () => {
-    const mockError = { status: 401, statusText: 'Unauthorized' };
+    const mockError = {status: 401, statusText: 'Unauthorized'};
     spyOn(loginSignService, 'login').and.returnValue(
       throwError(() => mockError)
     );

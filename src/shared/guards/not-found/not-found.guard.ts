@@ -1,7 +1,7 @@
-import { inject, Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import {inject, Injectable} from '@angular/core';
+import {CanActivate, Router} from '@angular/router';
 
-import { ToastService } from '../../../app/services/toast/toast.service';
+import {ToastService} from '../../../app/services/toast/toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,7 @@ export class NotFoundGuard implements CanActivate {
     });
 
     if (authToken) {
-      this.router.navigate(['/user']);
+      this.router.navigate(['/fake-twitter']);
       return false;
     }
 

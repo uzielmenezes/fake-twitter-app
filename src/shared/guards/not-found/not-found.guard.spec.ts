@@ -1,23 +1,23 @@
-import { TestBed } from '@angular/core/testing';
-import { Router } from '@angular/router';
-import { of } from 'rxjs';
+import {TestBed} from '@angular/core/testing';
+import {Router} from '@angular/router';
+import {of} from 'rxjs';
 
-import { ToastService } from '../../../app/services/toast/toast.service';
-import { NotFoundGuard } from './not-found.guard';
+import {ToastService} from '../../../app/services/toast/toast.service';
+import {NotFoundGuard} from './not-found.guard';
 
 describe('NotFoundGuard', () => {
   let guard: NotFoundGuard;
   let routerMock = {
     navigate: jasmine.createSpy('navigate').and.returnValue(of(true)),
   };
-  let toastServiceMock = { showMessage: jasmine.createSpy('showMessage') };
+  let toastServiceMock = {showMessage: jasmine.createSpy('showMessage')};
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
         NotFoundGuard,
-        { provide: Router, useValue: routerMock },
-        { provide: ToastService, useValue: toastServiceMock },
+        {provide: Router, useValue: routerMock},
+        {provide: ToastService, useValue: toastServiceMock},
       ],
     });
     guard = TestBed.inject(NotFoundGuard);
@@ -38,11 +38,11 @@ describe('NotFoundGuard', () => {
     });
   });
 
-  it('should return false, navigate to /user and show error toast if auth token is present', () => {
+  it('should return false, navigate to /fake-twitter and show error toast if auth token is present', () => {
     spyOn(sessionStorage, 'getItem').and.returnValue('dummy-token');
 
     expect(guard.canActivate()).toBe(false);
-    expect(routerMock.navigate).toHaveBeenCalledWith(['/user']);
+    expect(routerMock.navigate).toHaveBeenCalledWith(['/fake-twitter']);
     expect(toastServiceMock.showMessage).toHaveBeenCalledWith({
       severity: 'error',
       summary: 'Page Not Found',

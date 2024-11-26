@@ -1,12 +1,9 @@
-import { provideHttpClient } from '@angular/common/http';
-import {
-  HttpTestingController,
-  provideHttpClientTesting,
-} from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
+import {provideHttpClient} from '@angular/common/http';
+import {HttpTestingController, provideHttpClientTesting,} from '@angular/common/http/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { LoginResponse } from '../../types/login.types';
-import { LoginSignService } from './login-sign.service';
+import {LoginResponse} from '../../types/login.types';
+import {LoginSignService} from './login-sign.service';
 
 describe('LoginSignService', () => {
   let service: LoginSignService;

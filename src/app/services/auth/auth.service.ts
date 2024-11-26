@@ -1,10 +1,10 @@
-import { inject, Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import {inject, Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {of} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
 
-import { LoginSignService } from '../login-sign/login-sign.service';
-import { ToastService } from '../toast/toast.service';
+import {LoginSignService} from '../login-sign/login-sign.service';
+import {ToastService} from '../toast/toast.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,14 +15,14 @@ export class AuthService {
   private readonly loginSignService = inject(LoginSignService);
 
   handleAuth(email: string, password: string) {
-    return this.loginSignService.login({ email, password }).pipe(
-      tap(({ username }) => {
+    return this.loginSignService.login({email, password}).pipe(
+      tap(({username}) => {
         this.toastService.showMessage({
           severity: 'success',
           summary: 'Login',
           detail: `User ${username} has been logged in.`,
         });
-        this.router.navigate(['/user']);
+        this.router.navigate(['/fake-twitter']);
       }),
       catchError((err) => {
         this.toastService.showMessage({
