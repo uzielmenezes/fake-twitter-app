@@ -1,7 +1,7 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from "primeng/api";
-import {Router, RouterOutlet} from "@angular/router";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'fake-twitter',
@@ -14,9 +14,6 @@ export class FakeTwitterComponent implements OnInit {
   items!: MenuItem[];
 
   initials!: string;
-
-
-  private readonly router = inject(Router);
 
   ngOnInit() {
     this.getUsernameInitials();
