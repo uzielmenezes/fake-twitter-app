@@ -1,0 +1,17 @@
+<header>
+  <section class="main-menu">
+    <p-menubar [model]="items"/>
+  </section>
+  <section class="user-menu">
+    <!--    TOBE implemented: user picture storage-->
+    @if (initials) {
+      <div class="user-icon"><span>
+      {{ initials }}
+    </span></div>
+    }
+  </section>
+</header>
+
+<body>
+<router-outlet/>
+</body>

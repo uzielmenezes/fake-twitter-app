@@ -1,0 +1,47 @@
+@import "../../../styles/variables.scss";
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+}
+
+body {
+  padding: 9rem 0 2rem;
+  overflow-y: hidden;
+}
+
+.main-menu {
+  flex-grow: 1;
+
+}
+
+.user-menu {
+  display: flex;
+  justify-content: center;
+  flex-grow: .03;
+  border-left: .5px solid #fff;
+  padding: 0 1rem;
+}
+
+.user-icon {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  min-width: 5rem;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fff;
+  padding: .8rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
