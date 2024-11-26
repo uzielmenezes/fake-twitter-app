@@ -3,7 +3,7 @@ import {Routes} from '@angular/router';
 import {CreateAccFrameComponent} from './pages/authentication/create-acc-frame/create-acc-frame.component';
 import {LoginFrameComponent} from './pages/authentication/login-frame/login-frame.component';
 import {NotFoundGuard} from "../shared/guards/not-found/not-found.guard";
-import {UserComponent} from "./pages/user/user.component";
+import {HomeComponent} from "./pages/user/home.component";
 import {AuthGuard} from "../shared/guards/auth/auth.guard";
 
 export const routes: Routes = [
@@ -22,7 +22,7 @@ export const routes: Routes = [
   },
   {
     path: 'user',
-    component: UserComponent,
+    component: HomeComponent,
     canActivate: [AuthGuard],
   },
   {
