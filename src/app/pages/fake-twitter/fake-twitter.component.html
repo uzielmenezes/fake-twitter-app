@@ -5,9 +5,14 @@
   <section class="user-menu">
     <!--    TOBE implemented: user picture storage-->
     @if (initials) {
-      <div class="user-icon"><span>
+      <div (click)="showDialog()" class="user-icon"><span>
       {{ initials }}
     </span></div>
+      <p-dialog [header]="(username?? '') | titlecase" [(visible)]="isVisible" [resizable]="false" [draggable]="false"
+                [modal]="true"
+                [dismissableMask]="true" [style]="{position: 'absolute', top: '75px', right: '10px'}">
+        <span (click)="onLogoff()" class="action-link">Logoff</span>
+      </p-dialog>
     }
   </section>
 </header>
